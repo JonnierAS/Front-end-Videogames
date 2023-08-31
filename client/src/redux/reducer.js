@@ -1,12 +1,30 @@
-// import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./types";
+
+import { GET_GAMES, GET_BY_NAME } from "./types";
 
 const initialState = {
-  myFavorites: [],
-  allCharacters: [],
+  allGames: [],
+  gameCopy:[],
+  allGenres: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
-  
+  switch(type){
+    case GET_GAMES:
+      return{
+        ...state,
+        allGames: payload,
+        gameCopy: payload
+      }
+    case GET_BY_NAME:
+      return{
+        ...state,
+        allGames: payload,
+      }
+    default:
+      return {
+        ...state
+      }
+  }
 };
 
 export default reducer;

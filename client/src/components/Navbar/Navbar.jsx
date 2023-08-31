@@ -1,11 +1,11 @@
 import "./Navbar.style.css"
 
-const Navbar = ()=>{
+const Navbar = ({handleChange, handleSubmit})=>{
     return(
         <div className="searchBox">
-            <form>
-                <input placeholder="Busquedad" />
-                <button>Buscar</button>
+            <form onChange={handleChange}>
+                <input placeholder="Busquedad" type="search" />
+                <button type="submit" onClick={handleSubmit}>Buscar</button>
             </form>
            
         </div>

@@ -1,12 +1,16 @@
 import "./card.style.css"
 
-const Card = ()=>{
+const Card = ({game})=>{
+
+    const {name, rating, genres, background_image} = game;
+
     return(
         <div className="container">
-            <h2 className="title">Name</h2>
-            <p className="genres">Genres:</p>
+            <img className="img_container" src={background_image} alt="img" />
+            <h2 className="title">{name}</h2>
+            <p className="genres">{genres?.map(genre => genre.name).join(", ")}</p>
             <span className="span"></span>
-            <p className="rating">Rating</p>
+            <p className="rating">{rating}</p>
 
         </div>
     )

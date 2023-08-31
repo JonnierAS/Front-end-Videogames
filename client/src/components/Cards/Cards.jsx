@@ -1,13 +1,16 @@
 import Card from "../Card/Card"
 import "./cards.style.css"
 
-const Cards = ()=>{
+const Cards = ({games})=>{
+  const gameList = games;
+  
     return(
         <div className="containerd">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {gameList?.map(game=>
+            
+              <Card key={game.name} game={game}/>
+            
+          )}
         </div>
     )
 };
