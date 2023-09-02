@@ -8,18 +8,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(
     to left,
-    #222,
-    #595c37
+    #3a3737,
+    #250235
   );
   text-align: center;
 }
 
 .homeTitle{
-    margin-top: 75px;
-    margin-bottom: 50px;
-    font-size: 76px;
+  position: absolute;
+    left: 60px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 30px;
     color: #e3f145e1;
     font-family: "Bigelow Rules";
+    cursor: pointer;
 }
 
 .home{

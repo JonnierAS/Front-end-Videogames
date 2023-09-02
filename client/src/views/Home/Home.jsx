@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux"
 import {getGameByName, getGames} from "../../redux/actions"
 
@@ -11,6 +12,8 @@ const Home = ()=>{
 
     const dispatch = useDispatch();
     const games = useSelector((state)=>state.allGames);
+    
+    const navigate = useNavigate();
     const [searchString, setSearchString] = useState("");
    
     const handleChange = (event)=>{
@@ -50,7 +53,7 @@ const Home = ()=>{
 
     return(
         <div className="home">
-            <h2 className="homeTitle">Home</h2>
+            <h2 className='homeTitle' onClick={() => navigate("/")}>JasosPlay</h2>
             <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
             <Cards games={games} />
         </div>
