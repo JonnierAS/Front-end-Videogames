@@ -1,10 +1,11 @@
 
-import { GET_GAMES, GET_BY_NAME } from "./types";
+import { GET_GAMES, GET_BY_NAME, GET_BY_ID } from "./types";
 
 const initialState = {
   allGames: [],
   gameCopy:[],
   allGenres: [],
+  gameDetail: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -19,6 +20,11 @@ const reducer = (state = initialState, { type, payload }) => {
       return{
         ...state,
         allGames: payload,
+      }
+    case GET_BY_ID:
+      return{
+        ...state,
+        gameDetail: payload,
       }
     default:
       return {
