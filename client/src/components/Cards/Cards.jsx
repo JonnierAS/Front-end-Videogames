@@ -3,7 +3,7 @@ import "./cards.style.css"
 
 const Cards = ({games})=>{
   const gameList = games;
-  
+    
     return(
         <div className="containerd">
           {gameList?.map(game=>
