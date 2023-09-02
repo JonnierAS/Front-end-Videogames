@@ -1,11 +1,64 @@
+import { getGameById } from "../../redux/actions";
+import styles from "./detail.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
+const Detail = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const info = useSelector((state) => state.gameDetail[0]);
+  
+  const navigate = useNavigate();
 
-const Detail = ()=>{
-    return (
-        <div>
-            <h1>Este es el Detail</h1>
-        </div>
-    )
-}
+  useEffect(() => {
+    dispatch(getGameById(id));
+    /* return(()=>{  //SI entramos al detalle de un juego y nos salimos no queremos que se guarde
+        crearDetail()  //para limpiar el estado cuando nos salgamos de la pagina
+    }) */
+  }, [id]);
+
+  
+
+  return (
+    <div className={styles.main_container}>
+
+      <img className={styles.img_container} src={info?.background_image} alt={info?.name} />
+      <div className={styles.description_container}>
+      <div className={styles.title_container}>
+      <h1>{info?.name}</h1>
+      <a className='button' onClick={() => navigate("/home")}>Home</a>
+      </div>
+      <hr />
+      <div dangerouslySetInnerHTML={{__html: info?.description}} />
+      </div>
+      <div className={styles.extra_data_container}>
+        <ul>
+        <li>
+            <strong>Released: </strong>
+            {info?.released
+                  ? info?.released.split("-").reverse().join("/")
+                  : "N/A"}
+        </li>
+        <li>
+            <strong>Rating: </strong>{" "}
+            {info?.rating ? info?.rating  : "N/A"}
+        </li>
+        <li>
+            <strong>Genres: </strong>
+            {info?.genres.map((g) => g.name).join(", ") || "Not Specified"}
+        </li>
+        <li>
+            <strong>Platforms: </strong>
+            {info?.platforms
+                    ? info?.platforms.map((p) => p.platform.name).join(", ")
+                    : "N/A"}
+
+        </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 export default Detail;
