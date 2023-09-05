@@ -3,6 +3,9 @@ import styles from "./detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
+
+import img from "./home.png"
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -21,13 +24,15 @@ const Detail = () => {
   
 
   return (
+    <>
+    {info ? (
     <div className={styles.main_container}>
 
       <img className={styles.img_container} src={info?.background_image} alt={info?.name} />
       <div className={styles.description_container}>
       <div className={styles.title_container}>
       <h1>{info?.name}</h1>
-      <a className='button' onClick={() => navigate("/home")}>Home</a>
+      <a className={styles.btnHome} onClick={() => navigate("/home")}><img src={img} /></a>
       </div>
       <hr />
       <div dangerouslySetInnerHTML={{__html: info?.description}} />
@@ -58,6 +63,10 @@ const Detail = () => {
         </ul>
       </div>
     </div>
+    ) : (
+      <Loading />
+    )}
+    </>
   );
 };
 

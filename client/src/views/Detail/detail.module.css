@@ -48,6 +48,16 @@
   height: fit-content;
   border-bottom: 1px solid var(--ghost-white);
 }
+
+.btnHome img{
+  width: 30px;
+  opacity: 0.5;
+}
+
+.btnHome img:hover{
+  opacity: 1;
+}
+
 .title_container h1 {
   font-size: 1.8rem;
   padding: 0;
@@ -83,6 +93,7 @@
   margin-right: 0.6rem;
 }
 
+
 @media (max-width: 1000px) {
   .main_container {
     min-height: 100vh;
@@ -101,13 +112,18 @@
 }
 @media (max-width: 650px) {
   .main_container {
-    grid-template-rows: 17rem auto auto;
+    display: flex;
+    /* grid-template-rows: 17rem auto auto; */
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
   }
+  
   .img_container {
     height: 13rem;
   }
   .description_container {
-    padding: 1rem 10px;
+    /* padding: 1rem 10px; */
     overflow: visible;
     border-bottom: 1px solid var(--ghost-white);
   }
