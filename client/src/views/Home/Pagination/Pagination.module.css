@@ -1,0 +1,30 @@
+.pageContain {
+  padding: 20px 0 0;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.pageContain button{
+    font-size: 12px;
+    width: 40px;
+    cursor: pointer;
+    margin: 2px;
+    padding: 3px 3px 3px 3px;
+    background-color: #222;
+    color: #fff;
+    opacity: 0.7;
+}
+.pageContain button:hover{
+    opacity: 1;
+    box-shadow: 0 0 10px 0 rgb(222, 222, 222, 1);
+}   
+
+
+.page_btn:active {
+  background-color: purple;
+}
+.active_page {
+  background-color: purple;
+  border: 2px solid purple;
+}
