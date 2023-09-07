@@ -32,7 +32,7 @@ const Detail = () => {
       <div className={styles.description_container}>
       <div className={styles.title_container}>
       <h1>{info?.name}</h1>
-      <a className={styles.btnHome} onClick={() => navigate("/home")}><img src={img} /></a>
+      <a className={styles.btnHome} onClick={() => navigate("/home")}><img src={img} title="Home" /></a>
       </div>
       <hr />
       <div dangerouslySetInnerHTML={{__html: info?.description}} />
