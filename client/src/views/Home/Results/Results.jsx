@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
 import Cards from "../../../components/Cards/Cards";
-import NotFound from "../NotFound/NotFound";
+import Pagination from "../Pagination/Pagination";
 import Loading from "../../../components/Loading/Loading";
 
 const Results = () => {
@@ -11,26 +11,26 @@ const Results = () => {
   const allGames = useSelector((state) => state.allGames);
   const allGenres = useSelector((state) => state.allGenres);
 
-  const [page, setPage] = useState(+window.sessionStorage.getItem("page") || 1);
-
   const numberOfCards = 15;
-  const endPage = Math.ceil(allGames.length / numberOfCards);
+  const [page, setPage] = useState(1);
+
+  const totalPages = Math.ceil(allGames.length / numberOfCards);
   const startPage = (page - 1) * numberOfCards;
   const visibleGames = allGames.slice(startPage, startPage + numberOfCards);
-
+  
+  
   return (
     <div>
       {!allGames[0] ? (
-          <Loading />
-          ) : (
-              <div>
-            <button onClick={() => setPage(page - 1)}>back</button>
-            <button onClick={() => setPage(page + 1)}>next</button>
+        <Loading />
+      ) : (
+        <div>
+            <Pagination totalPages={totalPages} page={page} setPage={setPage} />
+
           <div>
             <Cards visibleGames={visibleGames} />
           </div>
-          <button onClick={() => setPage(page - 1)}>back</button>
-          <button onClick={() => setPage(page + 1)}>next</button>
+            <Pagination totalPages={totalPages} page={page} setPage={setPage} />
         </div>
       )}
     </div>
