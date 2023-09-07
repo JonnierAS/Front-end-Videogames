@@ -1,10 +1,11 @@
 
-import { GET_GAMES, GET_BY_NAME, GET_BY_ID } from "./types";
+import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER } from "./types";
 
 const initialState = {
   allGames: [],
   gameCopy:[],
   allGenres: [],
+  allGenresCopy: [],
   gameDetail: [],
 };
 
@@ -16,6 +17,12 @@ const reducer = (state = initialState, { type, payload }) => {
         allGames: payload,
         gameCopy: payload
       }
+      case GET_GENRES:
+        return{
+          ...state,
+          allGenres: payload,
+          allGenresCopy: payload
+        }
     case GET_BY_NAME:
       return{
         ...state,
@@ -25,6 +32,24 @@ const reducer = (state = initialState, { type, payload }) => {
       return{
         ...state,
         gameDetail: payload,
+      }
+    case FILTER:
+      return{
+        ...state,
+        allGames: payload === "allGenres"?
+          [...state.gameCopy]
+          : state.gameCopy.filter(game => game.genres?.some( genre=> genre.name=== payload))
+      }
+    case ORDER:
+      const allGamesOrder  = [...state.allGames]
+      return{
+        ...state,
+        allGames: 
+        payload === "default"? 
+        [ ...state.gameCopy ]
+        :payload === "A" ?allGamesOrder.sort((a , b) => a.name.localeCompare(b.name))
+        :payload === "D" ?allGamesOrder.sort((a, b) => b.name.localeCompare(a.name)) 
+        :[ ...state.gameCopy ]
       }
     default:
       return {
