@@ -1,0 +1,40 @@
+.Filtercontainer{
+    display: flex;
+    padding: 30px;
+    background-color: #252424;
+    border-radius: 40px;
+}
+
+.select{
+    width: 70px;
+    height: 25px;
+    background-color: #222;
+    border-color: #3b3b3b;
+    color: #fff;
+    opacity: 0.7;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.select:hover{
+    opacity: 1;
+    box-shadow: 0 0 10px rgb(243, 243, 243, 1);
+}
+
+.NotFound{
+    color: #fff;
+    font-size: 20px;
+}
+
+.genres_btn button{
+    font-size: 12px;
+    background-color: #222;
+    color: #fff;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.genres_btn button:hover{
+    opacity: 1;
+    box-shadow: 0 0 10px rgb(243, 243, 243, 1);
+}
