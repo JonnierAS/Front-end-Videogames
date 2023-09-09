@@ -89,3 +89,18 @@
 .titleNav:hover{
   opacity: 1;
 }
+
+@media(max-width: 650px){
+  .nav{
+
+  }
+  .titleNav{
+    font-size: 22px;
+    left: 7%;
+  }
+  .createBtn{
+    font-size: 10px;
+    left: 5%;
+    width: 60px;
+  }
+}
