@@ -1,11 +1,11 @@
 import Card from "../Card/Card"
-import "./cards.style.css"
+import style from "./cards.module.css"
 
-const Cards = ({games})=>{
-  const gameList = games;
-    
+const Cards = ({visibleGames})=>{
+  const gameList = visibleGames;
+  
     return(
-        <div className="containerd">
+        <div className={style.containerd}>
           {gameList?.map(game=>
             
               <Card key={game.name} game={game}/>
