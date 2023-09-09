@@ -1,4 +1,3 @@
-import NotFound from "../NotFound/NotFound"
 import style from "./Pagination.module.css"
 
 const Pagination = ({totalPages, page, setPage}) => {
