@@ -38,3 +38,21 @@
     opacity: 1;
     box-shadow: 0 0 10px rgb(243, 243, 243, 1);
 }
+
+.btn_genres_filter button:focus{
+    background-color: purple !important;
+    color: white !important;
+    box-shadow: 0 0 10px rgb(243, 243, 243, 1);
+    opacity: 1;
+}
+
+
+
+.btnHome img{
+    width: 30px;
+    opacity: 0.5;
+}
+  
+.btnHome img:hover{
+    opacity: 1;
+}
