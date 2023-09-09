@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER } from "./types";
+import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER,RESET_GAME_DETAIL } from "./types";
 
 
 export const getGames = () => {//`https://api.rawg.io/api/games?key=${API_KEY}`
@@ -14,7 +14,7 @@ export const getGames = () => {//`https://api.rawg.io/api/games?key=${API_KEY}`
         payload: response.data
       })
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data)
     }
   }
 };
@@ -28,7 +28,7 @@ export const getGenres = () => {
       payload: response.data
     })
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   }
 };
@@ -38,11 +38,15 @@ export const getGenres = () => {
 
 export const getGameByName = (name) => {
   return async dispatch => {
-    const response = await axios.get(`http://localhost:3001/videogames/?name=${name}`);
-    return dispatch({
+    try {
+      const response = await axios.get(`http://localhost:3001/videogames/?name=${name}`);
+      return dispatch({
       type: GET_BY_NAME,
       payload: response.data
     })
+    } catch (error) {
+      console.log(error.response.data);
+    }
   }
 }
 
@@ -57,18 +61,25 @@ export const getGameById = (id) => {
       });
 
     } catch (error) {
-      console.error(error.response.data.error);
+      console.error(error.response.data);
     }
   };
 };
+
+export const resetGameDetail = () => { 
+  return { 
+    type: RESET_GAME_DETAIL, 
+  }; 
+};
+
 
 export const postGame = (state)=>{
   return async ()=>{
     try {
       await axios.post("http://localhost:3001/videogames/", state)
-      console.log("heroe creado");
+      alert("Juego creado con exito!")
     } catch (error) {
-      console.log(error);
+      alert(error.response.data);
     }
   }
 }
@@ -87,5 +98,7 @@ export const orderGame = (order) => {
     payload: order
   }
 };
+
+
 
 
