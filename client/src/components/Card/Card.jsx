@@ -1,21 +1,20 @@
 import {Link} from "react-router-dom"
-import "./card.style.css"
+import style from "./card.module.css"
 
 const Card = ({game})=>{
 
     const {name, rating, genres, background_image, id} = game;
     
     return(
-        <>
-            
-        <div className="container">
-            <img className="img_container" src={background_image} alt="img" />
-            <h2 className="title">{name}</h2>
-            <p className="genres">{genres?.map(genre => genre.name).join(", ")}</p>
-            <Link to={`/game/${id}`}><span className="span"></span></Link>
-            <p className="rating">{rating}</p>
-        </div>
-            
+        <>  
+        <div className={style.container}>
+            <img className={style.img_container} src={background_image} alt="img" />
+            <span className={style.span}></span>
+             <p className={style.span}><Link className={style.tex_link} to={`/game/${id}`}>Click Here!</Link></p>
+            <h2 className={style.title}>{name}</h2>
+            <p className={style.genres}>{genres?.map(genre => genre.name).join(", ")}</p>
+            <p className={style.rating}>{rating}</p>
+        </div>     
         </>
     )
 };
