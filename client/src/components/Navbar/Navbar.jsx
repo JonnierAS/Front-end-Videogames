@@ -9,9 +9,9 @@ const Navbar = ({handleChange, handleSubmit})=>{
         <div className={styles.containerNav}>
          <div className={styles.nav}>
             <div className={styles.link_group}>
-                <h1 className={styles.titleNav} onClick={() => navigate("/")}>Let'sPlay</h1>
+                <h1 className={styles.titleNav} title="Landing Page" onClick={() => navigate("/")}>Let'sPlay</h1>
                 <NavLink to="/create" className={styles.createBtn}>
-                 <h2>Create a game!</h2>
+                 <h2 title="Form" >Create a game!</h2>
                  </NavLink>
                  
             </div>
@@ -19,7 +19,7 @@ const Navbar = ({handleChange, handleSubmit})=>{
              <div className={styles.searMain}>
                   <form onSubmit={handleSubmit}>
                      <input onChange={handleChange} className={styles.searchBox} placeholder="Search a game" type="text" />
-                     <button onSubmit={handleSubmit} type="submit"  >
+                     <button className={styles.btnForm} onSubmit={handleSubmit} type="submit"  >
                      <svg 
                      xmlns="http://www.w3.org/2000/svg" 
                      height="1em" 

@@ -65,9 +65,10 @@
   border-color: #fdec00;
   border-radius: 5px;
   padding: 10px;
+  color: #fff;
 }
 
-form button{
+form .btnForm{
   background-color: transparent;
   border: none;
 }
