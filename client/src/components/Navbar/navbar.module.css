@@ -106,4 +106,10 @@ form .btnForm{
     left: 5%;
     width: 60px;
   }
+  .searchBox{
+    width: 100px;
+  }
+  .search{
+    left: 75%;
+  }
 }
