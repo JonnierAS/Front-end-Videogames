@@ -4,6 +4,7 @@ import { useState } from "react";
 import Cards from "../../../components/Cards/Cards";
 import Pagination from "../Pagination/Pagination";
 import Loading from "../../../components/Loading/Loading";
+import Filter from "../Filter/Filter";
 
 
 const Results = () => {
@@ -22,6 +23,7 @@ const Results = () => {
   
   return (
     <div>
+      <Filter  setPage={setPage}/>
       {!allGames[0] ? (
         <Loading />
       ) : (
