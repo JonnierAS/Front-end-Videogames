@@ -4,4 +4,5 @@ export const GET_BY_ID = "GET_BY_ID";
 export const GET_GENRES = "GET_GENRES";
 export const FILTER = "FILTER";
 export const ORDER =  "ORDER";
+export const FILTER_BD = "FILTER_BD";
 export const RESET_GAME_DETAIL = "RESET_GAME_DETAIL";

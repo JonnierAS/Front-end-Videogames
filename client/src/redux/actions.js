@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER,RESET_GAME_DETAIL } from "./types";
+import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER,RESET_GAME_DETAIL, FILTER_BD } from "./types";
 
 
 export const getGames = () => {//`https://api.rawg.io/api/games?key=${API_KEY}`
@@ -77,7 +77,7 @@ export const postGame = (state)=>{
   return async ()=>{
     try {
       await axios.post("http://localhost:3001/videogames/", state)
-      alert("Juego creado con exito!")
+      alert("Successfully created game!")
     } catch (error) {
       alert(error.response.data);
     }
@@ -98,6 +98,13 @@ export const orderGame = (order) => {
     payload: order
   }
 };
+
+export const filterByBD = (created) =>{
+  return {
+    type: FILTER_BD,
+    payload : created
+  }
+}
 
 
 

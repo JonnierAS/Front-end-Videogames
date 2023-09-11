@@ -1,5 +1,5 @@
 
-import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER, RESET_GAME_DETAIL } from "./types";
+import { GET_GAMES, GET_BY_NAME, GET_BY_ID, GET_GENRES, FILTER, ORDER, RESET_GAME_DETAIL, FILTER_BD } from "./types";
 
 const initialState = {
   allGames: [],
@@ -39,10 +39,17 @@ const reducer = (state = initialState, { type, payload }) => {
     case FILTER:
       return{
         ...state,
-        allGames: payload === "allGenres"?
-          [...state.gameCopy]
+        allGames: payload === "allGenres"? [...state.gameCopy]
           : state.gameCopy.filter(game => game.genres?.some( genre=> genre.name=== payload))
       }
+      case FILTER_BD:
+        return{
+          ...state,
+          allGames: payload === "All" ? [...state.gameCopy]
+          : payload === "created"? state.gameCopy.filter(g => g.created)
+          :payload === "api"? state.gameCopy.filter(g => !g.created)
+          :[...state.gameCopy]
+        }
      
     case ORDER:
       const allGamesOrder  = [...state.allGames]
