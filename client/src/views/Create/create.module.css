@@ -23,6 +23,20 @@
   opacity: 0.5;
 }
 
+.img2{
+  position: relative !important ;
+  left: 20%;
+  height: 100%;
+  width: 500px;
+  border-radius: 10%;
+}
+
+.img3{
+  position:absolute;
+  top: 20%;
+  left: 55%;
+}
+
 .btnHome img:hover {
   opacity: 1;
 }
@@ -111,6 +125,16 @@
   border-radius: 7px;
   border: solid 1px;
 }
+.Genres_seleted button{
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0;
+  cursor: pointer;
+}
+.Genres_seleted button:hover{
+  color: red;
+}
 
 .div_container {
   margin: 5px;
@@ -118,8 +142,17 @@
 
 @media (max-width: 750px) {
   .Main_Contaner_Form {
-    left: 42px;
+    left: 44px;
     width: 80vw;
     height: 100vh;
   }
+  .img2,
+  .img3{
+    visibility: hidden;
+  }
+  .numeric_fields{
+    left: -75px;
+  }
+  
+  
 }

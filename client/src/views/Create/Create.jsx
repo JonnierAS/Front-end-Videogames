@@ -1,5 +1,7 @@
 import style from "./create.module.css";
 import img from "../../../img/home.png";
+import img2 from "../../../img/ff.jpg"
+import img3 from "../../../img/fondoForm.png"
 
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -16,7 +18,8 @@ const Create = () => {
       dispatch(getGenres());
     }
   }, []);
-
+  
+  
   const [input, setInput] = useState({
     name: "",
     description: "",
@@ -24,8 +27,12 @@ const Create = () => {
     rating: "",
     genres: [],
     platforms: [],
-    background_image: "",
+    background_image: "https://www.eluniverso.com/resizer/OpB9Cam3XaPrmORFRs2_XjPJhk4=/1191x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/IWBJWVYISFF67GXBLFKMW74Q2I.jpg",
   });
+  
+  useEffect(()=>{
+    validate()
+  },[input])
 
   const platforms = [
     "PC",
@@ -53,15 +60,19 @@ const Create = () => {
   });
   
   const validate = () => {
-    if (input.name.length < 4) {
-      setError({ name: "Write a valid name (at least 4 characters)" });
-      return;
-    }
     if (input.name === "") {
       setError({ name: "Name can’t be empty" });
       return;
     }
+    if (input.name.length < 4) {
+      setError({ name: "Write a valid name (at least 4 characters)" });
+      return;
+    }
 
+    if (input.description.length < 30 || input.description.length > 150) {
+      setError({ description: "More of 30 character" });
+      return;
+    }
     
       if (isNaN(parseInt(input.rating))) {
         setError({ rating: "Only numbers" });
@@ -71,12 +82,9 @@ const Create = () => {
     if (input.rating <= 0 || input.rating > 5) {
       setError({ rating: "rating Min 1 - Max 5" });
       return;
-    } 
-
-    if (input.description.length < 30 || input.description.length > 150) {
-      setError({ description: "More of 30 character" });
-      return;
     }
+
+
 
     setError({
       ...error,
@@ -172,6 +180,9 @@ const Create = () => {
     dispatch(postGame(input));
   };
   return (
+    <div>
+      <img className={style.img2} src={img2} alt="" />
+      <img className={style.img3} src={img3} alt="" />
     <div className={style.Main_Contaner_Form}>
       <a className={style.btnHome} onClick={() => navigate("/home")}>
         <img src={img} title="Home" />
@@ -199,12 +210,12 @@ const Create = () => {
           <div className={style.numeric_fields}>
             <div className={style.date_field}>
               <div className={style.date_container}>
-                <label>Released(DD-MM-YY)</label>
+                <label className={style.texdate}>Date(DD-MM-YY)</label>
                 <input
                   className={style.inpuprating}
                   value={input.released}
                   onChange={handleChange}
-                  placeholder="day-month-year"
+                  placeholder="dd-mm-yy"
                   type="text"
                   name="released"
                 />
@@ -217,7 +228,7 @@ const Create = () => {
                 className={style.inpuprating}
                 value={input.rating}
                 name="rating"
-                type="number"
+                type="text"
                 placeholder="0.00"
                 onChange={handleChange}
               />
@@ -288,6 +299,7 @@ const Create = () => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };
