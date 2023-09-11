@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 import "./home.style.css";
 import Loading from "../../components/Loading/Loading";
 import Results from "./Results/Results";
-import Filter from "./Filter/Filter";
+// import Filter from "./Filter/Filter";
 
 
 const Home = ()=>{
@@ -41,7 +41,7 @@ const Home = ()=>{
         {allGames ? (
         <div className="home">
             <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
-            <Filter />
+            {/* <Filter /> */}
             <Results />
             <Footer /> 
         </div>
