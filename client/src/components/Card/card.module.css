@@ -60,7 +60,7 @@
 
   .tex_link {
     text-decoration: none;
-    color: #f3e309;
+    color: #f7f7f6;
     font-size: 30px;
     cursor: pointer;
   }
@@ -84,7 +84,6 @@
  
   .span {
     height: 10rem;
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
   }
   @keyframes scaling {
     from{
@@ -95,22 +94,18 @@
     }
   }
   .container:hover{
-    border: 1px solid white-transparent;
-    box-shadow: 0 0 15px 2px white-transparent;
+    border: 1px solid var(--white-transparent);
+    box-shadow: 0 0 15px 2px var(--white-transparent);
     transform: scale(1.032);
   }
  
  
   .container:hover > .span{
-    opacity: 70;
-    visibility: visible;
+    opacity: 1;
   }
-  .container:hover > .span {
-    visibility: visible;
-    
-  }
+ 
   .container:hover > .img_container{
-    opacity: 8;
+    opacity: 0.5;
     filter: blur(8px) grayscale(100%);
   }
   
