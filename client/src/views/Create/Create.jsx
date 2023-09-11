@@ -140,19 +140,6 @@ const Create = () => {
   };
 
   const handleChange = (event) => {
-    if (event.target.name === "platforms") {
-      if (input.genres.includes(event.target.value)) return;
-      setInput({
-        ...input,
-        [event.target.name]: [...input[event.target.name], event.target.value],
-      });
-    } else {
-      setInput({
-        ...input,
-        [event.target.name]: event.target.value,
-      });
-    }
-
     if (event.target.name === "genres") {
       if (input.genres.includes(event.target.value)) return;
       setInput({
@@ -174,7 +161,6 @@ const Create = () => {
       event.target.name
     );
   };
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(postGame(input));
