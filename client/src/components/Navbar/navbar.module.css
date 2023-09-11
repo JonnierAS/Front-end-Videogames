@@ -66,34 +66,36 @@
   border-radius: 5px;
   padding: 10px;
 }
+
+form button{
+  background-color: transparent;
+  border: none;
+}
+
 .search{
   position: absolute;
   padding: 2px;
   cursor: pointer;
   top: 8px;
   left: 80%;
-  border: 1px solid transparent;
-  border-radius: 5px;
 }
 
 /* Hovers */
 
 .search:hover{
-  border-color: #fdec00;
-  transition: .8s ease-in-out border-color;
+  color: #fdec00;
+  transition: .5s ease-in-out color;
 }
+.titleNav:hover,
 .createBtn:hover{
-  opacity: 0.8;
+  opacity: 0.9;
+  transition: .5s ease-in-out opacity;
 }
 
-.titleNav:hover{
-  opacity: 1;
-}
+
 
 @media(max-width: 650px){
-  .nav{
-
-  }
+  
   .titleNav{
     font-size: 22px;
     left: 7%;
