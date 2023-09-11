@@ -5,7 +5,6 @@ import Home from './views/Home/Home';
 import Create from "./views/Create/Create"
 import Detail from "./views/Detail/Detail"
 import Footer from "./views/Footer/Footer";
-import NotFound from "./views/Home/NotFound/NotFound";
 
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/create' element={<Create />} />
         <Route path='/game/:id' element={<Detail />} />
-        <Route path='/notFound' element={<NotFound />} />
         <Route path="/" element={<Footer />} />
       </Routes>
     </div>
