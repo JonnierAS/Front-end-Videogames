@@ -9,12 +9,11 @@
   position: absolute;
   color: #fdec00;
   font-size: 70px;
-  opacity: 0.3;
-  cursor: pointer;
+  opacity: 0.8;
 }
 
 .titles:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 .containbtn {
   background-color: #161616;
@@ -131,7 +130,7 @@
   height: 250px;
   border-radius: 50%;
   border: 2px solid #a200ff;
-  animation: onda 3s 2s infinite;
+  animation: onda 3s 0s infinite;
   background-attachment: fixed;
 }
 
@@ -156,11 +155,10 @@
   height: 250px;
   border-radius: 50%;
   border: 1px solid #ffee00;
-  animation: onda 5s 2s infinite;
+  animation: onda 5s 0s infinite;
   background-attachment: fixed;
 }
-.btn,
-.titles {
+.btn{
   animation-name: opacidad;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
