@@ -5,7 +5,8 @@ import Home from './views/Home/Home';
 import Create from "./views/Create/Create"
 import Detail from "./views/Detail/Detail"
 import Footer from "./views/Footer/Footer";
-
+import axios from "axios";
+axios.defaults.baseURL="http://localhost:3001"
 
 function App() {
   return (
