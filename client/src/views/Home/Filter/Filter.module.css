@@ -23,7 +23,9 @@
 
 .NotFound {
   color: #fff;
+  margin: auto;
   font-size: 20px;
+  left: 50%;
 }
 
 .genres_btn button {

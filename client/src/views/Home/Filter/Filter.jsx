@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 import style from "./Filter.module.css"
-import {filterGame, orderGame} from "../../../redux/actions"
+import {filterGame, orderGame, filterByBD} from "../../../redux/actions"
 import { getGenres } from "../../../redux/actions";
 
 
 
-const Filter = ()=>{
+const Filter = ({setPage})=>{
     
     const dispatch = useDispatch();
     const [noResults, setNoResults] = useState(false);
@@ -36,14 +36,22 @@ const Filter = ()=>{
             dispatch(getGenres());
         }
     }, [])
-
+    
+    
     const handleOrder = (event)=>{
        dispatch(orderGame(event.target.value));
     };
 
     const handleFilter = (event)=>{
         dispatch(filterGame(event.target.value));
+        document.documentElement.scrollTop = 0;
+        setPage(1);
     };
+
+    const handleFilterBD = (event) => {
+        dispatch(filterByBD(event.target.value))
+        setPage(1);
+    }
 
     
 
@@ -57,6 +65,13 @@ const Filter = ()=>{
                 <option value="D">Z-A</option>
             </select>
             
+            <select  className={style.select} onChange={handleFilterBD}>
+                <option value="All">ALL</option>
+                <option value="created">DB</option>
+                <option value="api">API</option>
+            </select>
+
+
             <div className={style.genres_btn} >
                 {noResults? (
                    <span value="allGenres" onClick={handleFilter} >
