@@ -6,7 +6,7 @@ import Create from "./views/Create/Create"
 import Detail from "./views/Detail/Detail"
 import Footer from "./views/Footer/Footer";
 import axios from "axios";
-axios.defaults.baseURL="https://back-end-videogames.vercel.app"
+axios.defaults.baseURL="http://localhost:3001"
 
 function App() {
   return (
