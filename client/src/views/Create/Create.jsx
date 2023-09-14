@@ -56,7 +56,7 @@ const Create = () => {
   });
   
   const validate = () => {
-    if (input.name === "") {
+    if (input.name === "" || input.name.startsWith(" ")) {
       setError({ name: "Name can’t be empty" });
       return;
     }
@@ -153,10 +153,24 @@ const Create = () => {
       event.target.name
     );
   };
+  const setForm = ()=>{
+    setInput({
+      name: "",
+    description: "",
+    released: "",
+    rating: "",
+    genres: [],
+    platforms: [],
+    background_image: ""
+    })
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(postGame(input));
+    setForm()
   };
+
+
   return (
     <div>
       <img className={style.img2} src={img2} alt="" />
