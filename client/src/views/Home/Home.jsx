@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {getGameByName, getGames, getGenres} from "../../redux/actions"
+import {getGameByName, getGames} from "../../redux/actions"
 
 
 import Navbar from "../../components/Navbar/Navbar";

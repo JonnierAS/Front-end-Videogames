@@ -52,11 +52,7 @@ const Create = () => {
   const [error, setError] = useState({
     name: "Name can’t be empty",
     description: "",
-    released: "",
     rating: "",
-    genres: "",
-    platforms: "",
-    background_image: "",
   });
   
   const validate = () => {
@@ -90,11 +86,7 @@ const Create = () => {
       ...error,
       name: "",
       description: "",
-      released: "",
       rating: "",
-      genres: "",
-      platforms: "",
-      background_image: "",
     });
   };
 //Platforms

@@ -44,7 +44,6 @@ const Filter = ({setPage})=>{
 
     const handleFilter = (event)=>{
         dispatch(filterGame(event.target.value));
-        document.documentElement.scrollTop = 0;
         setPage(1);
     };
 
@@ -75,7 +74,7 @@ const Filter = ({setPage})=>{
             <div className={style.genres_btn} >
                 {noResults? (
                    <span value="allGenres" onClick={handleFilter} >
-                   <p className={style.NotFound} >Please RESET and select other filter!</p>
+                   <p className={style.NotFound} > Please RESET and select other filter!</p>
                </span> 
                 ): (
                     <span className={style.btn_genres_filter} value="allGenres" onClick={handleFilter} >
